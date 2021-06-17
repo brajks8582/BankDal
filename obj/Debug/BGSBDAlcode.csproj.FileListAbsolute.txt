@@ -71,3 +71,8 @@ E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.dll
 E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.pdb
 E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.Migrations.Mig1.resources
 E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.csproj.GenerateResource.cache
+E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.Migrations.mid.resources
+E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.Migrations.accountvirtual.resources
+E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.Migrations.accountvirtu1.resources
+E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.Migrations.accountvirtu2.resources
+E:\ProjectCode\BGSBDAlcode\obj\Debug\BGSBDAlcode.Migrations.accountvirtu3.resources

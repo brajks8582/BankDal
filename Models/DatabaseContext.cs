@@ -8,7 +8,10 @@ namespace BGSBcodefirst.Models
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext() : base("bankDb") { }
+        public DatabaseContext() : base("bankDb") {
+            base.Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
+        }
         public DbSet<AccountDetail> AccountDetails { get; set; }
         public DbSet<Customer> Customers{ get; set; }
         public DbSet<Beneficiary> Beneficiaries{ get; set; }

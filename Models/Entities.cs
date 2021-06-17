@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BGSBcodefirst.Models
 {
@@ -14,6 +15,7 @@ namespace BGSBcodefirst.Models
     public class AccountDetail {
         [Key]
         public long AccountNo { get; set; }
+        [ForeignKey("Customer")]
         public long CustomerID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -27,13 +29,13 @@ namespace BGSBcodefirst.Models
         public Nullable<int> Balance { get; set; }
 
         public virtual Customer Customer { get; set; }
-       
+
         public virtual ICollection<AtmCumDebitCard> AtmCumDebitCard { get; set; }
-       
+
         public virtual ICollection<ServiceRequestNo> ServiceRequestNo { get; set; }
-       
+
         public virtual ICollection<ServicesSubscribed> ServicesSubscribed { get; set; }
-       
+
         public virtual ICollection<Transaction> Transaction { get; set; }
 
     }
@@ -42,6 +44,7 @@ namespace BGSBcodefirst.Models
     public class AtmCumDebitCard {
         [Key]
         public long DebitCardNo { get; set; }
+        //[ForeignKey("AccountDetails")]
         public long AccountNo { get; set; }
         public int PIN { get; set; }
         public string Status { get; set; }
@@ -49,12 +52,15 @@ namespace BGSBcodefirst.Models
         public System.DateTime ExpiryDate { get; set; }
         public string DisplayName { get; set; }
 
-        public virtual AccountDetail AccountDetail { get; set; }
+        //public virtual AccountDetail AccountDetail { get; set; }
     }
 
 
 
     public class Beneficiary {
+        Beneficiary() {
+            Transaction = new List<Transaction>();
+        }
         [Key]
         public int BeneficiaryID { get; set; }
         public long AccountNo { get; set; }
@@ -83,7 +89,7 @@ namespace BGSBcodefirst.Models
         public string KYCStatus { get; set; }
         public DateTime LastLogin { get; set; }
         public DateTime LastLogOut { get; set; }
-        public virtual ICollection<AccountDetail> AccountDetail { get; set; }
+        //public virtual ICollection<AccountDetail> AccountDetail { get; set; }
     }
 
 
@@ -92,6 +98,7 @@ namespace BGSBcodefirst.Models
         [Key]
         public int TransactionID { get; set; }
         public System.DateTime TransactionDate { get; set; }
+        //[ForeignKey("AccountDetail")]
         public long AccountNo { get; set; }
         public int TransactionAmount { get; set; }
         public string TransactionType { get; set; }
@@ -99,13 +106,14 @@ namespace BGSBcodefirst.Models
         public int BeneficiaryID { get; set; }
         public string TransactionStatus { get; set; }
 
-        public virtual AccountDetail AccountDetail { get; set; }
+        //public virtual AccountDetail AccountDetail { get; set; }
         public virtual Beneficiary Beneficiary { get; set; }
     }
 
     public class ServiceRequestNo {
         [Key]
         public int ServiceRequestId { get; set; }
+        //[ForeignKey("AccountDetail")]
         public long AccountNo { get; set; }
         public System.DateTime DateOfRequest { get; set; }
         public System.DateTime DateOfCompletion { get; set; }
@@ -118,6 +126,8 @@ namespace BGSBcodefirst.Models
     public class ServicesSubscribed {
         [Key]
         public int ServiceID { get; set; }
+
+        //[ForeignKey("AccountDetail")]
         public long AccountNo { get; set; }
         public string SubscriptionName { get; set; }
         public string SubscriptionDescription { get; set; }
